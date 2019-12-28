@@ -1,7 +1,13 @@
-# Use the latest PHP FPM (fast process manager - for NginX) official Alpine image
-# The Alpine image is based off a tiny version of Linux (Alpine Linux), and unless you are
-# doing anything quite advanced with your setup you probably won't need a full Debian-based image
 FROM php:7.3-fpm-alpine
 
-# Install PHP's PDO and PDO_MySQL extensions
-RUN docker-php-ext-install pdo pdo_mysql
+# Dependencies
+RUN apk --no-cache --update add curl nano \
+    libpng-dev \
+    libzip-dev \
+    zlib-dev \
+    unzip \
+    zip \
+    git
+
+# Extensions
+RUN docker-php-ext-install pdo pdo_mysql mysqli mbstring zip exif gd

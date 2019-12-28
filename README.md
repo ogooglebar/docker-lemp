@@ -1,4 +1,4 @@
-#Docker-compose lemp stack
+# Docker-compose lemp stack
 
 * Nginx
 * PHP-FPM
@@ -12,6 +12,7 @@
 ## Usage
 
 ```
+cp .env.example .env
 docker-compose up -d
 ```
 ```
